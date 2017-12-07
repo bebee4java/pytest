@@ -1,83 +1,82 @@
-#!/usr/bin/python3
+from collections import deque
+l = ['s', 'v']
+c = l.count('t')
+print(c)
+
+stack = list()
+stack.append('3')
+stack.append('1')
+stack.pop()
+print(stack)
 
 
-def changeint(a):
-    a = 10
-
-b = 2
-changeint(b)
-print(b)    # 结果是2
-
-
-# 可写函数说明
-def changeme(mylist):
-    "修改传入的列表"
-    mylist.append([1, 2, 3, 4])
-    print("函数内取值: ", mylist)
-    return
-
-# 调用changeme函数
-mylist = [10, 20, 30]
-changeme(mylist)
-print("函数外取值: ", mylist)
+queue = deque()
+queue.append('3')
+queue.append('1')
+queue.popleft()
+print(queue)
 
 
-# 可写函数说明
-def printme(str):
-    "打印任何传入的字符串"
-    print(str)
-    return
+vec = [2, 4, 6]
+vec = [3*x for x in vec]
+print(vec)
 
-# 调用printme函数
-printme(str="菜鸟教程")
-
-
-# 可写函数说明
-def printinfo(name, age=35):
-    "打印任何传入的字符串"
-    print("名字: ", name)
-    print("年龄: ", age)
-    return
-
-# 调用printinfo函数
-printinfo(age=50, name="runoob")
-print("------------------------")
-printinfo(name="runoob")
+matrix = [[1, 2, 3, 4],
+          [5, 6, 7, 8],
+          [9, 10, 11, 12]]
+print(matrix)
+transposed = []
+for i in range(4):
+    transposed.append([row[i] for row in matrix])
+print(transposed)
 
 
-# 可写函数说明
-def printinfo(arg1, *vartuple):
-    "打印任何传入的参数"
-    print("输出: ")
-    print(arg1)
-    for var in vartuple:
-        print(var)
-    return
-print('=============可变参数===================')
-# 调用printinfo 函数
-printinfo(10)
-printinfo(70, 60, 50)
+a = [-1, 1, 66.25, 333, 333, 1234.5]
+del a[0]
+print(a)
 
-print('=====================匿名函数=======================')
-# 可写函数说明
-sum = lambda arg1, arg2: arg1 + arg2
+a = {x for x in 'abracadabra' if x not in 'abc'}
+print(a)
 
-# 调用sum函数
-print("相加后的值为 : ", sum(10, 20))
-print("相加后的值为 : ", sum(20, 20))
+knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+for k, v in knights.items():
+    print(k, v)
 
-print('===================作用域===========================')
-total = 0    # 这是一个全局变量
-# 可写函数说明
+print(1, 2, 3, sep='|')
+
+count = 0
+while count < 5:
+    print(count, " 小于 5")
+    count += 1
+else:
+    print(count, " 大于或等于 5")
+
+r = range(1, 20, 3)
+print(r)
+for i in range(1, 20, 3):
+    print(i)
+
+a = ['Google', 'Baidu', 'Runoob', 'Taobao', 'QQ']
+for i in range(len(a)):
+    print(i, a[i], sep=' = ')
 
 
-def sum(arg1, arg2):
-    # 返回2个参数的和."
-    total = arg1 + arg2     # total在这里是局部变量.
-    print("函数内是局部变量 : ", total)
-    return total
+def isprime(n):
+    for x in range(2, n):
+        if n % x == 0:
+            print(n, '等于', x, '*', n//x)
+            break
+    else:
+        # 循环中没有找到元素
+        print(n, ' 是质数')
+isprime(3)
+isprime(349343)
 
-# 调用sum函数
-sum(10, 20)
-print("函数外是全局变量 : ", total)
-print(sum(10, 20))
+for x in range(1, 11):
+    print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+
+print('{}网址： "{}!"'.format('菜鸟教程', 'www.runoob.com'))
+
+table = {'Google': 1, 'Runoob': 2, 'Taobao': 3}
+for name, number in table.items():
+    print('{0:10} ==> {1:10d}'.format(name, number))
