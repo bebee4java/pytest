@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import sys
+import random
 
 # -*- coding: utf8 -*-
 
@@ -39,3 +40,16 @@ print(x, end=""); print(y, end="")
 print("===================")
 print(sys.argv)
 print(sys.path)
+
+# reverse=True 降序
+# a降序 b,c升序
+data = list()
+data.append({'a': 1, 'b': 2, 'c': 2})
+data.append({'a': 3, 'b': 2, 'c': 3})
+data.append({'a': 2, 'b': 3, 'c': 5})
+data.append({'a': 1, 'b': 4, 'c': 2})
+data.sort(key=lambda x: (x['a'], -x['b'], -x['c']), reverse=True)
+for d in data:
+    print(d)
+
+print(3 > 4 < 5 > 9)    # 相当于(3>4) and (4<5) and (5<9) 如果遇到false直接false
